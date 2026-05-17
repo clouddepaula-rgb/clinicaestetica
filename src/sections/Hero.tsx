@@ -16,7 +16,7 @@ export function Hero() {
       {/* Background Image with Overlay - Optimized with Next.js Image for top-tier LCP performance */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf"
+          src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e"
           alt="Clínica Estética Premium"
           fill
           priority
