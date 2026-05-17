@@ -1,20 +1,21 @@
 "use client";
 
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import Image from "next/image";
 
 const results = [
   {
-    image: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec",
     title: "Harmonização Suave",
     description: "Equilíbrio e proporção preservando a identidade visual da paciente, garantindo uma aparência descansada."
   },
   {
-    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c",
     title: "Sustentação Profunda",
     description: "Protocolo combinado de bioestimuladores para tratar a flacidez e resgatar o contorno facial."
   },
   {
-    image: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1522337660859-02fbefca4702",
     title: "Revitalização Labial",
     description: "Volume e hidratação na medida certa com Ácido Hialurônico, evitando mudanças artificiais."
   }
@@ -38,11 +39,13 @@ export function Results() {
         <div ref={ref} className="reveal grid grid-cols-1 md:grid-cols-3 gap-8">
           {results.map((item, index) => (
             <div key={index} className="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-500">
-              <div className="aspect-[4/5] overflow-hidden">
-                <img 
+              <div className="aspect-[4/5] relative overflow-hidden">
+                <Image 
                   src={item.image} 
                   alt={item.title} 
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import Image from "next/image";
 
 export function About() {
   const textRef = useScrollReveal();
@@ -11,12 +12,14 @@ export function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <div ref={imageRef} className="reveal lg:w-1/2 w-full">
-            <div className="relative">
+            <div className="relative aspect-[4/3] w-full">
               <div className="absolute inset-0 bg-[var(--accent-gold)] rounded-2xl transform translate-x-4 translate-y-4"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80" 
+              <Image 
+                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118" 
                 alt="Clínica Estética Premium" 
-                className="relative rounded-2xl w-full h-auto object-cover shadow-xl z-10"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="relative rounded-2xl object-cover shadow-xl z-10"
               />
             </div>
           </div>

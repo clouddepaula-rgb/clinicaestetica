@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "../components/ui/Button";
+import Image from "next/image";
 
 export function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -12,17 +13,21 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[10s] ease-out hover:scale-105"
-        style={{ 
-          backgroundImage: "url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80')",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(250,248,245,0.95)] via-[rgba(250,248,245,0.8)] to-transparent"></div>
+      {/* Background Image with Overlay - Optimized with Next.js Image for top-tier LCP performance */}
+      <div className="absolute inset-0 z-0">
+        <Image 
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf"
+          alt="Clínica Estética Premium"
+          fill
+          priority
+          quality={85}
+          sizes="100vw"
+          className="object-cover transition-transform duration-[10s] ease-out hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(250,248,245,0.95)] via-[rgba(250,248,245,0.8)] to-[rgba(250,248,245,0.3)] z-10"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
         <div className={`max-w-2xl transition-all duration-1000 transform ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 backdrop-blur-sm border border-[var(--accent-gold)]/30 mb-8">
             <span className="w-2 h-2 rounded-full bg-[var(--accent-gold)] animate-pulse"></span>
